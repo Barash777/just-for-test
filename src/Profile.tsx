@@ -1,34 +1,29 @@
 import React, {useEffect} from 'react';
-import {Navigate, useNavigate} from 'react-router-dom';
+import {useSearchParams} from 'react-router-dom';
 
 const Profile = () => {
 
-    const navigate = useNavigate()
+    const [searchParams, setSearchParams] = useSearchParams()
 
-    /*useEffect(() => {
-        if (true) {
-            navigate('/login')
-        }
-    }, [])*/
+    console.log(searchParams.get('name'))
+    console.log(searchParams.get('age'))
+    console.log(Object.fromEntries(searchParams))
 
+    useEffect(() => {
+        console.log('research')
+    }, [searchParams])
 
 
     return (
         <div>
             Profile from component
-            <button onClick={() => {navigate(-1)}}>logout</button>
+            <button onClick={() => {
+                setSearchParams({...Object.fromEntries(searchParams), age: '33'})
+            }}
+            >
+                add age
+            </button>
         </div>
-
-    /*<div>
-        {true ? (
-            <Navigate to={'/login'} />
-        ) : (
-            <>
-                Profile from component
-                <button onClick={() => {navigate('/login')}}>logout</button>
-            </>
-        )}
-    </div>*/
     );
 };
 
