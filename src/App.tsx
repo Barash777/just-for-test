@@ -11,17 +11,11 @@ function App() {
             <NavLink to={'/profile'}>profile-- </NavLink>
             <NavLink to={'/profile/settings'}>settings-- </NavLink>
 
-            <a
-                href={'https://www.google.com'}
-                target={'_blank'}
-                rel="noreferrer"
-            >test</a>
-
             <Routes>
                 <Route path={'/*'} element={<div>404</div>}/>
                 <Route path={'/'} element={<div>main</div>}/>
                 <Route path={'/login'} element={<div>login</div>}/>
-                <Route path={'/profile'} element={<div>profile</div>}/>
+                <Route path={'/profile'} element={<Profile/>}/>
                 <Route path={'/profile/settings'} element={<div>settings</div>}/>
             </Routes>
         </div>
