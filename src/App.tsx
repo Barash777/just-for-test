@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {NavLink, Outlet, Route, Routes} from 'react-router-dom';
+import Profile from './Profile';
 
 function App() {
     return (
@@ -14,34 +15,9 @@ function App() {
                 <Route path={'/*'} element={<div>404</div>}/>
                 <Route path={'/'} element={<div>main</div>}/>
                 <Route path={'/login'} element={<div>login</div>}/>
-                {/*<Route path={'/profile/*'} element={(*/}
-                {/*    <div>*/}
-                {/*        profile*/}
-
-                {/*        <Routes>*/}
-                {/*            <Route path={'/settings'} element={<div>settings</div>}/>*/}
-                {/*        </Routes>*/}
-                {/*    </div>*/}
-                {/*)}/>*/}
-                {/*/!*<Route path={'/profile/settings'} element={<div>settings</div>}/>*!/*/}
-
-                <Route path={'/profile'} element={(
-                    <div>
-                        profile
-
-                        <Outlet/>
-                    </div>
-                )}>
-                    <Route path={'*'} element={<div>not found</div>}/>
-                    {/*no parameters*/}
-                    <Route index element={<div>check</div>}/>
-
-                    <Route path={'/profile/settings'} element={<div>settings</div>}/>
-                    <Route path={':id'} element={<div>id</div>}/>
-                    {/*the same way*/}
-                    {/*<Route path={'settings'} element={<div>settings</div>}/>*/}
-                </Route>
-
+                {/*<Route path={'/profile'} element={<div>profile</div>}/>*/}
+                {/*<Route path={'/profile/:id/:x'} element={<Profile/>}/>*/}
+                <Route path={'/profile/*'} element={<Profile/>}/>
             </Routes>
         </div>
     );
